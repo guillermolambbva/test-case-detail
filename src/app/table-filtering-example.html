@@ -1,0 +1,95 @@
+<button mat-raised-button extended color="primary">
+  <mat-icon>arrow_back</mat-icon>
+  Atras
+</button>
+<h1>Test Case <button mat-fab color="accent" aria-label="Example icon button with a delete icon">
+  <mat-icon>play_circle_outline</mat-icon>
+</button></h1>
+<div class="example-button-row">
+  <button mat-raised-button color="primary">Editar</button>
+  <button mat-raised-button color="warn">Borrar</button>
+</div>
+<p>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Titulo </mat-panel-title>
+    <mat-panel-description> ECDY-23423 </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>This is the primary content of the panel.</p>
+</mat-expansion-panel>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Descripcion</mat-panel-title>
+    <mat-panel-description> TST-ECDY-4567 </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>This is the primary content of the panel.</p>
+</mat-expansion-panel>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Lista de Steps</mat-panel-title>
+    <mat-panel-description> TST-ECDY-4567 </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-list role="list">
+    <mat-list-item role="listitem">Item 1</mat-list-item>
+    <mat-list-item role="listitem">Item 2</mat-list-item>
+    <mat-list-item role="listitem">Item 3</mat-list-item>
+  </mat-list>
+</mat-expansion-panel>
+<h1>Test Case Runs</h1>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Test Name</th>
+    <td mat-cell *matCellDef="let element">{{element.title}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="testCaseId">
+    <th mat-header-cell *matHeaderCellDef>Test ID</th>
+    <td mat-cell *matCellDef="let element">{{element.testCaseId}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="duration">
+    <th mat-header-cell *matHeaderCellDef>Duration</th>
+    <td mat-cell *matCellDef="let element">{{element.duration}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="result">
+    <th mat-header-cell *matHeaderCellDef>Result</th>
+    <td mat-cell *matCellDef="let element">{{element.result}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="lastExecution">
+    <th mat-header-cell *matHeaderCellDef>Last Executed</th>
+    <td mat-cell *matCellDef="let element">{{element.lastExecution}}</td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">
+      No data matching the filter "{{input.value}}"
+    </td>
+  </tr>
+</table>
+
+<!-- Copyright 2023 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
